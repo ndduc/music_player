@@ -1,5 +1,6 @@
 package ndduc.project.musicplayer;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -57,6 +58,10 @@ implements View.OnClickListener{
 
             populateTitles();
             populateList();
+
+            Intent intent = new Intent(this, activity_Audio.class);
+            intent.putExtra("audios", titles);
+            startActivity(intent);
         }
     }
 

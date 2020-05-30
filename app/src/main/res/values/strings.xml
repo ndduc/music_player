@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MusicPlayer</string>
+    <string name="btn_start">Start</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_prev">Previous</string>
+    <string name="btn_nex">Next</string>
 </resources>
