@@ -47,6 +47,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/viewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:textSize="20dp">
+
+            </TextView>
+            <TextView
                 android:id="@+id/viewSelectedSong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,10 +63,18 @@
 
             </TextView>
 
-            <SeekBar
-                android:id="@+id/sbAudio"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></SeekBar>
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <SeekBar
+                    android:id="@+id/sbAudio"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                />
+            </LinearLayout>
+
         </LinearLayout>
 
         <ListView

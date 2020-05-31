@@ -68,7 +68,7 @@ implements View.OnClickListener{
     public void populateTitles() {
         try {
 
-            JSONObject json = Conn_Json.readJsonFromUrl("http://192.168.1.243/leeleelookupphp/php_jsonrw/title_list.json");
+            JSONObject json = Conn_Json.readJsonFromUrl("http://192.168.1.243/leeleelookupphp/php_jsonrw/title_list_2.json");
             Json_Decoder jd = new Json_Decoder(json);
             titleList = jd.populateTiles();
             titles = new String[titleList.size()] ;
