@@ -20,26 +20,63 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnPlay"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_start"></Button>
+                android:gravity="center"
+                android:orientation="horizontal"
+                >
 
-            <Button
-                android:id="@+id/btnPrev"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_prev"></Button>
+                <Button
+                    android:id="@+id/btnPlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_start"></Button>
 
-            <Button
-                android:id="@+id/btnNext"
-                android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/btnPrev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_prev"></Button>
+
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_nex"></Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_nex"></Button>
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All"
+                    android:id="@+id/btnAll"></Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shuffle"
+                    android:id="@+id/btnShuf"></Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Repeat"
+                    android:id="@+id/btnRe"></Button>
+            </LinearLayout>
+
+
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,7 +107,7 @@
 
                 <SeekBar
                     android:id="@+id/sbAudio"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                 />
             </LinearLayout>
