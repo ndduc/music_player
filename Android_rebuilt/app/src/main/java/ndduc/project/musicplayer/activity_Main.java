@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.List;
 
 import ndduc.project.musicplayer.Connector.Conn_Json;
+import ndduc.project.musicplayer.Container.YoutubeData;
 import ndduc.project.musicplayer.Helper.Debug;
 import ndduc.project.musicplayer.Json_Handler.Json_Decoder;
 import ndduc.project.musicplayer.Container.Titles;
@@ -53,11 +54,13 @@ implements View.OnClickListener{
         populateList();
 
         try {
-            JSONObject json = URL_Decoder.readYoutube("AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q", "unravel", "1", "DETAIL");
-            Debug.debug("RESULT", json);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+           // JSONObject json = URL_Decoder.readYoutube("AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q", "unravel", "1", "DETAIL");
+           // Debug.debug("RESULT", json);
+            List<YoutubeData> lst = Json_Decoder.getJsonContent("AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q", "unravel", "5", "DETAIL");
+            for(int i = 0; i < lst.size(); i++) {
+                lst.get(i).print();
+            }
+        }  catch (Exception e) {
             e.printStackTrace();
         }
     }
