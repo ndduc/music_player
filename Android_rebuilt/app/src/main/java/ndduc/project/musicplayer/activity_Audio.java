@@ -1,6 +1,5 @@
 package ndduc.project.musicplayer;
 
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,15 +10,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import ndduc.project.musicplayer.Converter.cov_Time;
-import ndduc.project.musicplayer.Helper.Converter;
 import ndduc.project.musicplayer.Helper.Debug;
 import ndduc.project.musicplayer.Option.playOption;
 import ndduc.project.musicplayer.URL_Handler.URL_Encoder;
@@ -95,8 +92,8 @@ public class activity_Audio extends AppCompatActivity {
 
 
         if (option == playOption.single) {
+            Debug.debug("SINGLE", viewAudio.getText().toString());
             setMediaPlay(viewAudio.getText().toString());
-            btnStart.setText("Stop");
         } else if (option == playOption.all) {
 
         } else if (option == playOption.repeat) {
@@ -121,9 +118,11 @@ public class activity_Audio extends AppCompatActivity {
      * play audio helper, reduce code complexity
      * */
     private void setMediaPlay(String title) throws Exception {
-        viewAudio.setText(testList.get(z));
+        Debug.debug("Play Single", title);
+        //viewAudio.setText(testList.get(z));
         btnStart.setText("Stop");
-        Debug.debug("Playing", testList.get(z));
+        Debug.debug("Playing", title);
+        Debug.debug("Play URL", getURL(title));
         mp = new MediaPlayer();
         mp.setDataSource(getURL(title));
         mp.prepare();
@@ -183,7 +182,8 @@ public class activity_Audio extends AppCompatActivity {
             tmpAr.add(titles[i]);
         }
         curTitles = tmpAr;
-        viewAudio.setText(curTitles.get(curTitles.size()-1));
+         //viewAudio.setText(curTitles.get(curTitles.size()-1));
+            viewAudio.setText(titles[position]);
     }
 
 

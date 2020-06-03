@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ndduc.project.musicplayer">
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
@@ -19,9 +20,8 @@
         </activity>
 
         <activity android:name=".activity_Audio"></activity>
-
-
+        <activity android:name=".activity_Convert"></activity>
+        <activity android:name=".activity_Check"></activity>
 
     </application>
-
 </manifest>

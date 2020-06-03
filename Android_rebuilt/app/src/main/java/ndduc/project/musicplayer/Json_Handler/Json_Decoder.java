@@ -4,11 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
-import ndduc.project.musicplayer.Helper.Debug;
 
 public class Json_Decoder {
     JSONObject root;

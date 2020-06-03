@@ -1,12 +1,15 @@
 package ndduc.project.musicplayer.Connector;
 
-import org.json.*;
-import java.io.*;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
-
-import ndduc.project.musicplayer.Helper.Debug;
-import ndduc.project.musicplayer.Json_Handler.Json_Decoder;
 
 public class Conn_Json {
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {

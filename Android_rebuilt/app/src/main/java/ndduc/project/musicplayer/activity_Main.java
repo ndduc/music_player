@@ -29,7 +29,7 @@ implements View.OnClickListener{
     //https://code.tutsplus.com/tutorials/create-a-music-player-on-android-project-setup--mobile-22764
     //http://www.java2s.com/Code/Android/Media/PlayMp3filefromaUrl.htm
     private EditText txtTest;
-    private Button btnTest;
+    private Button btnTest, btnWeb;
     private ListView listView;
     private List<Titles> titleList;
     private String titles[];
@@ -44,8 +44,10 @@ implements View.OnClickListener{
         setContentView(R.layout.layout_main);
         txtTest = (EditText) findViewById(R.id.txtTest);
         btnTest = (Button) findViewById(R.id.btnTest);
+        btnWeb = findViewById(R.id.btnWeb);
         listView = (ListView) findViewById(R.id.lst_audio);
         btnTest.setOnClickListener(this);
+        btnWeb.setOnClickListener(this);
         populateTitles();
         populateList();
     }
@@ -62,13 +64,16 @@ implements View.OnClickListener{
             Intent intent = new Intent(this, activity_Audio.class);
             intent.putExtra("audios", titles);
             startActivity(intent);
+        } else if (v.getId() == btnWeb.getId()) {
+            Intent in = new Intent(this, activity_Convert.class);
+            startActivity(in);
         }
     }
 
     public void populateTitles() {
         try {
 
-            JSONObject json = Conn_Json.readJsonFromUrl("http://192.168.1.243/leeleelookupphp/php_jsonrw/title_list_2.json");
+            JSONObject json = Conn_Json.readJsonFromUrl("http://192.168.1.243/leeleelookupphp/php_jsonrw/title_list.json");
             Json_Decoder jd = new Json_Decoder(json);
             titleList = jd.populateTiles();
             titles = new String[titleList.size()] ;
