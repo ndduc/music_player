@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.List;
 
 import ndduc.project.musicplayer.Container.YoutubeData;
+import ndduc.project.musicplayer.Helper.Debug;
 import ndduc.project.musicplayer.Json_Handler.Json_Decoder;
 import ndduc.project.musicplayer.URL_Handler.URL_Encoder;
 
@@ -70,25 +71,30 @@ public class activity_Populate extends AppCompatActivity {
 
     private void populateImage() throws Exception {
         layoutTable.removeAllViews();
-        List<YoutubeData> lst = getYoutubeData(txtApi.getText().toString(), URL_Encoder.get_URL_Encoder_Mod_1(txtTitle.getText().toString()), txtNum.getText().toString());
+        final List<YoutubeData> lst = getYoutubeData(txtApi.getText().toString(), URL_Encoder.get_URL_Encoder_Mod_1(txtTitle.getText().toString()), txtNum.getText().toString());
 
         for (int r = 0; r < lst.size(); r++){
             TableRow tr = new TableRow(this);
             for (int c= 0 ; c < 1; c++){
-                LinearLayout layout = new LinearLayout(this);
+                final LinearLayout layout = new LinearLayout(this);
                 layout.setOrientation(LinearLayout.HORIZONTAL);
                 LinearLayout layout_sub = new LinearLayout(this);
                 layout_sub.setOrientation(LinearLayout.VERTICAL);
                 HorizontalScrollView layout_scroll_Ho = new HorizontalScrollView(this);
 
-                TextView tit = new TextView(this);
+                final TextView tit = new TextView(this);
                 TextView pub = new TextView(this);
                 TextView cha = new TextView(this);
                 ImageView im = new ImageView (this);
                 Picasso.get().load(lst.get(r).getImage().toString()).into(im);
                 im.setPadding(0, 0, 0, 0); //padding in each image if needed
-                //add here on click event etc for each image...
-                //...
+
+                layout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Debug.debug("CLICK", tit.getText());
+                    }
+                });
 
                 tit.setText(lst.get(r).getTitles().toString());
                 pub.setText(lst.get(r).getPublish().toString());
