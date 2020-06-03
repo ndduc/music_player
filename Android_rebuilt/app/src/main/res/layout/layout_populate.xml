@@ -80,16 +80,18 @@
                 android:id="@+id/btnSearch"></Button>
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="500dp">
 
-            <ImageView
-                android:id="@+id/imgView_1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"></ImageView>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/layoutTable">
 
-        </LinearLayout>
+            </TableLayout>
+        </ScrollView>
+
     </LinearLayout>
 
 
