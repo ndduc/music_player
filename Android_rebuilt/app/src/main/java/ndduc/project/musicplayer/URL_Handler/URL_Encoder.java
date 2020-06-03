@@ -21,6 +21,11 @@ public class URL_Encoder {
         return URLEncoder.encode(url, String.valueOf(StandardCharsets.UTF_8));
     }
 
+    public static String get_URL_Encoder_Mod_1(String obj) throws UnsupportedEncodingException {
+        String str = URL_Encoder.get_URL_Encoder(obj).replace("+", "%20");
+        return str;
+    }
+
 
 
 

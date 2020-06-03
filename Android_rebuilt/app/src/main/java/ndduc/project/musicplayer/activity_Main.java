@@ -48,17 +48,16 @@ implements View.OnClickListener{
         addListenner();
         populateTitles();
         populateList();
-
+/*
         try {
-           // JSONObject json = URL_Decoder.readYoutube("AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q", "unravel", "1", "DETAIL");
-           // Debug.debug("RESULT", json);
+
             List<YoutubeData> lst = Json_Decoder.getJsonContent("AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q", "unravel", "5", "DETAIL");
             for(int i = 0; i < lst.size(); i++) {
                 lst.get(i).print();
             }
         }  catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private void synComponent() {
