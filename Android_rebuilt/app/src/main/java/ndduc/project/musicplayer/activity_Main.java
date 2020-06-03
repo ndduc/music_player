@@ -121,14 +121,14 @@ implements View.OnClickListener{
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Debug.debug("TEST1", parent.getItemAtPosition(position));
-
+/*
             try {
                 mp.setDataSource("http://192.168.1.243/leeleelookupphp/youtubedownloader/audio/TsuruNoShikaeshi.mp3");
                 mp.prepare();
                 mp.start();
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
     };
 }

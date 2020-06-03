@@ -4,4 +4,10 @@
     <string name="btn_pause">Pause</string>
     <string name="btn_prev">Previous</string>
     <string name="btn_nex">Next</string>
+    <string name="view_Api">API</string>
+    <string name="view_Title">Title</string>
+    <string name="view_Number">Number of result</string>
+    <string name="view_type">Search Type</string>
+
+    <string name="btn_Search">Search</string>
 </resources>
