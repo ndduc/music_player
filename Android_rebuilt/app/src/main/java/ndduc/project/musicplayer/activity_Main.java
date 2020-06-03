@@ -22,7 +22,8 @@ import java.util.List;
 import ndduc.project.musicplayer.Connector.Conn_Json;
 import ndduc.project.musicplayer.Helper.Debug;
 import ndduc.project.musicplayer.Json_Handler.Json_Decoder;
-import ndduc.project.musicplayer.Json_Handler.Titles;
+import ndduc.project.musicplayer.Container.Titles;
+import ndduc.project.musicplayer.URL_Handler.URL_Decoder;
 
 public class activity_Main extends AppCompatActivity
 implements View.OnClickListener{
@@ -50,6 +51,15 @@ implements View.OnClickListener{
         btnWeb.setOnClickListener(this);
         populateTitles();
         populateList();
+
+        try {
+            JSONObject json = URL_Decoder.readYoutube("AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q", "unravel", "1", "DETAIL");
+            Debug.debug("RESULT", json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 

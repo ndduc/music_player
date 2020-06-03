@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import ndduc.project.musicplayer.Container.Titles;
+
 public class Json_Decoder {
     JSONObject root;
 

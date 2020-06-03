@@ -1,4 +1,4 @@
-package ndduc.project.musicplayer.Json_Handler;
+package ndduc.project.musicplayer.Container;
 
 public class Titles {
     private Object title;
