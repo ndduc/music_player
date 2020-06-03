@@ -31,7 +31,7 @@ implements View.OnClickListener{
     //https://code.tutsplus.com/tutorials/create-a-music-player-on-android-project-setup--mobile-22764
     //http://www.java2s.com/Code/Android/Media/PlayMp3filefromaUrl.htm
     private EditText txtTest;
-    private Button btnTest, btnWeb;
+    private Button btnTest, btnWeb, btnSearch;
     private ListView listView;
     private List<Titles> titleList;
     private String titles[];
@@ -44,12 +44,8 @@ implements View.OnClickListener{
         StrictMode.setThreadPolicy(policy);
 
         setContentView(R.layout.layout_main);
-        txtTest = (EditText) findViewById(R.id.txtTest);
-        btnTest = (Button) findViewById(R.id.btnTest);
-        btnWeb = findViewById(R.id.btnWeb);
-        listView = (ListView) findViewById(R.id.lst_audio);
-        btnTest.setOnClickListener(this);
-        btnWeb.setOnClickListener(this);
+        synComponent();
+        addListenner();
         populateTitles();
         populateList();
 
@@ -63,6 +59,20 @@ implements View.OnClickListener{
         }  catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void synComponent() {
+        txtTest = (EditText) findViewById(R.id.txtTest);
+        btnTest = (Button) findViewById(R.id.btnTest);
+        btnSearch = findViewById(R.id.btnSearch_main);
+        btnWeb = findViewById(R.id.btnWeb);
+        listView = (ListView) findViewById(R.id.lst_audio);
+    }
+
+    private void addListenner() {
+        btnTest.setOnClickListener(this);
+        btnWeb.setOnClickListener(this);
+        btnSearch.setOnClickListener(this);
     }
 
 
@@ -79,6 +89,9 @@ implements View.OnClickListener{
             startActivity(intent);
         } else if (v.getId() == btnWeb.getId()) {
             Intent in = new Intent(this, activity_Convert.class);
+            startActivity(in);
+        } else if (v.getId() == btnSearch.getId()) {
+            Intent in = new Intent(this, activity_Populate.class);
             startActivity(in);
         }
     }

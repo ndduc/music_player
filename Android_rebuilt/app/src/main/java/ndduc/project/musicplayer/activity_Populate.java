@@ -20,14 +20,14 @@ public class activity_Populate extends AppCompatActivity {
     TextView txtApi, txtTitle, txtNum;
     Button btnSearch;
     TableLayout layoutTable;
-
+    ImageView ivImage_1;
 
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.layout_populate);
         synComponent();
         try {
-            populateTable();
+            populateImage();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,20 +40,14 @@ public class activity_Populate extends AppCompatActivity {
 
         btnSearch = findViewById(R.id.btnSearch);
 
-        layoutTable = findViewById(R.id.layoutTable);
+        ivImage_1 = findViewById(R.id.imgView_1);
     }
 
-    private void populateTable() throws Exception {
+    private void populateImage() throws Exception {
 
-        for (int r=1; r<= 1; r++) {
-            TableRow tr = new TableRow(this);
-            for (int c = 1; c <= 1; c++) {
-                ImageView im = new ImageView(this);
-                Picasso.get().load("https://i.ytimg.com/vi/rj7xMBxd5iY/default.jpg").into(im);
+        Picasso.get().load("https://i.ytimg.com/vi/rj7xMBxd5iY/default.jpg").into(ivImage_1);
 
-                tr.addView(im, 100, 100);
-            }
-            layoutTable.addView(tr);
-        }
+
+
     }
 }
