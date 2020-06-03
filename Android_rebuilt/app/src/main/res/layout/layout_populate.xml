@@ -21,13 +21,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/view_Api"
-                android:textSize="20dp">
+                android:textSize="20dp"
+                >
             </TextView>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:id="@+id/txtApi">
+                android:id="@+id/txtApi"
+                android:text="@string/edit_api">
             </EditText>
         </LinearLayout>
 

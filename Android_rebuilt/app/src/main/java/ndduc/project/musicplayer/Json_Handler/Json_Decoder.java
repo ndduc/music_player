@@ -16,7 +16,7 @@ import ndduc.project.musicplayer.URL_Handler.URL_Decoder;
 public class Json_Decoder {
     JSONObject root;
 
-
+    public Json_Decoder(){};
     public Json_Decoder(JSONObject root) {
         this.root = root;
     }
@@ -43,7 +43,7 @@ public class Json_Decoder {
      * Static method
      * */
 
-    public static List<YoutubeData> getJsonContent (String key, String title, String result, String option) throws Exception {
+    public List<YoutubeData> getJsonContent (String key, String title, String result, String option) throws Exception {
         List<YoutubeData> lst = new ArrayList<>();
         JSONObject root = URL_Decoder.readYoutube(key, title, result, option);
         JSONArray jsonArray = root.getJSONArray("items");
