@@ -98,7 +98,7 @@ implements View.OnClickListener{
     public void populateTitles() {
         try {
 
-            JSONObject json = Conn_Json.readJsonFromUrl("http://192.168.1.243/leeleelookupphp/php_jsonrw/title_list.json");
+            JSONObject json = Conn_Json.readJsonFromUrl("http://192.168.1.243/leeleelookupphp/phpfunction/read_directory/read_dir.php?action=adv_read");
             Json_Decoder jd = new Json_Decoder(json);
             titleList = jd.populateTiles();
             titles = new String[titleList.size()] ;
@@ -106,7 +106,6 @@ implements View.OnClickListener{
                 //System.out.println("MAIN TEST\t" + titleList.get(i).getTitle());
                 titles[i] = titleList.get(i).getTitle().toString();
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {

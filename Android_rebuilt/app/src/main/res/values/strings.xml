@@ -8,8 +8,10 @@
     <string name="view_Title">Title</string>
     <string name="view_Number">Number of result</string>
     <string name="view_type">Search Type</string>
-
+    <string name="view_channel">Channel</string>
+    <string name="view_id">Video Id</string>
     <string name="btn_Search">Search</string>
+    <string name="btn_Add">Tap To Add This Video</string>
 
     <string name="edit_api">AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q</string>    //Default API
 </resources>

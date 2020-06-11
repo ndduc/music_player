@@ -37,6 +37,20 @@ public class Json_Decoder {
         return lst;
     }
 
+    public List<Titles> populateTiles_2() {
+        List<Titles> lst = new ArrayList<>();
+        try {
+            JSONObject jar = root.getJSONObject("titles");
+            Debug.debug("TEST JSON", jar);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return lst;
+    }
+
+
+
 
     /**
      * Method decode json content from youtube  url

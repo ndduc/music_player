@@ -2,11 +2,20 @@ package ndduc.project.musicplayer;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -18,12 +27,14 @@ import com.squareup.picasso.Picasso;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.List;
 
 import ndduc.project.musicplayer.Container.YoutubeData;
 import ndduc.project.musicplayer.Helper.Debug;
 import ndduc.project.musicplayer.Json_Handler.Json_Decoder;
+
 import ndduc.project.musicplayer.URL_Handler.URL_Encoder;
 
 public class activity_Populate extends AppCompatActivity {
@@ -89,10 +100,23 @@ public class activity_Populate extends AppCompatActivity {
                 Picasso.get().load(lst.get(r).getImage().toString()).into(im);
                 im.setPadding(0, 0, 0, 0); //padding in each image if needed
 
+                final int final_r = r;
                 layout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Debug.debug("CLICK", tit.getText());
+                        Debug.debug("CLICK", lst.get(final_r).getId());
+
+                        try {
+                            createPopUp(v, lst.get(final_r).getTitles().toString(),
+                                    lst.get(final_r).getChannel().toString(),
+                                    lst.get(final_r).getId().toString(),
+                                    lst.get(final_r).getImage());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+
+
                     }
                 });
 
@@ -126,5 +150,97 @@ public class activity_Populate extends AppCompatActivity {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private void createPopUp(View v, String title, String channel, String id, Object image) throws UnsupportedEncodingException {
+
+
+        String url = "http://192.168.1.243:80/leeleelookupphp/node/index.php?t=" + URL_Encoder.get_URL_Encoder_Mod_1(title) + "&c=" + URL_Encoder.get_URL_Encoder_Mod_1(channel) + "&i=" + URL_Encoder.get_URL_Encoder_Mod_1(id) + "&im=" + image.toString();
+        Debug.debug("TEST URL", url);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.layout_convert, null);
+
+
+        // create the popup window
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+        WebView wv_1 = popupView.findViewById(R.id.wvBrowser);
+
+        wv_1.setVerticalScrollBarEnabled(false);
+        wv_1.getSettings().setDomStorageEnabled(true);
+        wv_1.getSettings().setSaveFormData(true);
+        wv_1.getSettings().setAllowContentAccess(true);
+        wv_1.getSettings().setAllowFileAccess(true);
+        wv_1.getSettings().setAllowFileAccessFromFileURLs(true);
+        wv_1.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        wv_1.getSettings().setSupportZoom(true);
+        wv_1.getSettings().setJavaScriptEnabled(true);
+        wv_1.getSettings().setLoadWithOverviewMode(true);
+        //wv_1.getSettings().setUseWideViewPort(true);
+        wv_1.getSettings().setBuiltInZoomControls (true);
+        wv_1.getSettings().setDisplayZoomControls (true);
+        wv_1.getSettings().setSupportZoom(true);
+        wv_1.getSettings().setDefaultTextEncodingName("utf-8");
+        wv_1.setWebViewClient(new WebViewClient());
+        wv_1.setClickable(true);
+        wv_1.setWebChromeClient(new WebChromeClient());
+
+        wv_1.loadUrl(url);
+
+
+
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
+    }
+    private void createPopUp_2(View v, String title, String chandler, String id, Object image) {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View popupView = inflater.inflate(R.layout.layout_popup, null);
+
+        EditText et_title = popupView.findViewById(R.id.txtPopTitle);
+        EditText et_chandler = popupView.findViewById(R.id.txtPopChandle);
+        EditText et_id = popupView.findViewById(R.id.txtPopId);
+        ImageView img = popupView.findViewById(R.id.imgPop);
+        Picasso.get().load(image.toString()).into(img);
+
+        et_chandler.setEnabled(false);
+        et_title.setEnabled(false);
+        et_id.setEnabled(false);
+
+        et_chandler.setText(chandler);
+        et_title.setText(title);
+        et_id.setText(id);
+
+        // create the popup window
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+        // show the popup window
+        // which view you pass in doesn't matter, it is only used for the window tolken
+        popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
     }
 }
