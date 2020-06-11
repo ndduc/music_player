@@ -1,0 +1,19 @@
+
+
+     
+/**Flex Display*/
+.div-Top, .div-Bot, .div-Parent {display: flex; }
+.div-Top, .div-Bot, .convert-button, .opt  {width: 50%;}
+.div-Parent, .div-Top, .div-Bot {flex-direction: column;}
+
+/**Center Align**/
+.div-Parent, .div-Bot {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/**Margin*/
+.div-Bot, .div-Top {
+    margin-top: 2%;
+}

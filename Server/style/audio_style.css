@@ -1,0 +1,79 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 17, 2020, 6:41:28 PM
+    Author     : ndduc
+*/
+
+
+
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1920px) { 
+    /**BORDER*/
+    .divAudi, .div-player, .div-Audio-List, .div-Nav-Child-1 {border: 1px black solid;}
+    /**BORDER-RADIDUS*/
+    .div-player, .div-Nav-Child-1 {border-radius: 15px;}
+    /**DISPLAY*/
+    .body-audio, .div-player  { display: flex;}
+    /**ALIGN*/
+        /**CENTER*/
+        .body-audio, .div-Nav-Child-1{ align-items: center; justify-content:center; text-align: center; }
+        /*LEFT - text align*/
+        .ul-audio-list {text-align: left;}
+    .body-audio {flex-direction: column;}
+    /**CURSOR*/
+    .divAudi,  .div-player > div, .ul-audio-list > li {cursor: pointer;}
+    /**SIZE*/
+    .div-player{width: 30%;}
+    .div-Nav-Child-1 {width: 15%; height: 5%;}
+    .div-Audio-List {width: 35%; height: 200px}
+    .div-player > div, .div-player-shuf, .id-img-shuf { width: 20%; height: 20%;}
+    /**MARGIN*/
+     .div-player-next, .div-player-all, .div-player-re, .div-player-shu { margin-left: 5%;}
+     .div-player-prev { margin-left: 2%;}
+    /**PADDING*/
+    .div-player {padding-top: 1%; padding-bottom: 1%;}
+     .div-Nav-Child-1 {padding-top: 1%;}
+    /**FONT*/
+    /**SCROLL*/
+    .div-Audio-List {overflow: scroll; overflow-x: hidden;}
+    /**LIST STYLE*/  
+    .ul-audio-list > li {list-style: none;}
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 700px) {
+    /**BORDER*/
+    .divAudi, .div-player, .div-Audio-List, .div-Nav-Child-1 {border: 1px black solid;}
+    /**BORDER-RADIDUS*/
+    .div-player, .div-Nav-Child-1 {border-radius: 15px;}
+    /**DISPLAY*/
+    .body-audio, .div-player  { display: flex;}
+    /**ALIGN*/
+        /**CENTER*/
+        .body-audio, .div-Nav-Child-1{ align-items: center; justify-content:center; text-align: center; }
+        /*LEFT - text align*/
+        .ul-audio-list {text-align: left;}
+    .body-audio {flex-direction: column;}
+    /**CURSOR*/
+    .divAudi,  .div-player > div, .ul-audio-list > li {cursor: pointer;}
+    /**SIZE*/
+    .div-player{width: 100%;}
+    .div-Nav-Child-1 {width: 50%; height: 5%;}
+    .div-Audio-List {width: 100%; height: 30%;}
+    .div-player > div, .div-player-shuf, .id-img-shuf { width: 20%; height: 20%;}
+    /**MARGIN*/
+     .div-player-next, .div-player-all, .div-player-re, .div-player-shu { margin-left: 5%;}
+     .div-player-prev { margin-left: 2%;}
+    /**PADDING*/
+    .div-player {padding-top: 1%; padding-bottom: 1%;}
+     .div-Nav-Child-1 {padding-top: 1%;}
+    /**FONT*/
+    /**SCROLL*/
+    .div-Audio-List {overflow: scroll;}
+    /**LIST STYLE*/  
+    .ul-audio-list > li {list-style: none;}
+
+}
