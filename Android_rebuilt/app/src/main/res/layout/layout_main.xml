@@ -3,49 +3,49 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="538dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="110dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_vertical">
 
-        <EditText
-            android:id="@+id/txtTest"
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100px"></EditText>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            >
 
-        <Button
-            android:id="@+id/btnTest"
-            android:layout_width="match_parent"
-            android:layout_height="100px"
-            android:text="HIT ME">
+            <Button
+                android:id="@+id/btnPlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:text="Play">
+            </Button>
 
-        </Button>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search Youtube"
+                android:id="@+id/btnSearch_main"
+                android:background="@drawable/border"
+                android:layout_marginTop="20dp"></Button>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="100px"
-            android:text="BROWSE"
-            android:id="@+id/btnWeb"></Button>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="100px"
-            android:text="SEARCH"
-            android:id="@+id/btnSearch_main"></Button>
+        </LinearLayout>
 
-        <ListView
-            android:id="@+id/lst_audio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </ListView>
 
     </LinearLayout>
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -24,13 +25,15 @@ import ndduc.project.musicplayer.URL_Handler.URL_Encoder;
 public class activity_Audio extends AppCompatActivity {
     private ListView listView;
     private Button btnStart, btnPrev, btnNex, btnAll, btnShuf, btnRe;
+    private Button btnHome, btnSearch, btnMusic;
     private TextView viewAudio, viewTime;
     private SeekBar sbAudio;
     private MediaPlayer mp;
     private String titles[];
     private List<String> curTitles;
-    private String path = "http://192.168.1.243/leeleelookupphp/youtubedownloader/audio/";
+    private String path = "http://192.168.1.243/leeleelookupphp/node/audio/";
     private Handler mHandler;
+    private LinearLayout tab;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_player);
@@ -56,6 +59,9 @@ public class activity_Audio extends AppCompatActivity {
         sbAudio = findViewById(R.id.sbAudio);
 
         listView = findViewById(R.id.lst_audio_);
+
+        btnHome = findViewById(R.id.btnTab_Home);
+
     }
 
     private void setListener() {
@@ -65,6 +71,7 @@ public class activity_Audio extends AppCompatActivity {
         btnAll.setOnClickListener(eventClick);
         btnShuf.setOnClickListener(eventClick);
         btnRe.setOnClickListener(eventClick);
+        btnHome.setOnClickListener(eventClick);
     }
 
 
@@ -250,6 +257,8 @@ public class activity_Audio extends AppCompatActivity {
 
             } else if (v.getId() == btnRe.getId()) {
 
+            } else if (v.getId() == btnHome.getId()) {
+                Debug.debug("CLICKED", "HOME");
             }
         }
     };

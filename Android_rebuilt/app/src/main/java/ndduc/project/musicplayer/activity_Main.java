@@ -31,15 +31,11 @@ implements View.OnClickListener{
     //https://code.tutsplus.com/tutorials/create-a-music-player-on-android-project-setup--mobile-22764
     //http://www.java2s.com/Code/Android/Media/PlayMp3filefromaUrl.htm
     private EditText txtTest;
-    private Button btnTest, btnWeb, btnSearch;
-    private ListView listView;
+    private Button btnPlay, btnSearch;
     private List<Titles> titleList;
     private String titles[];
-    private MediaPlayer mp;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mp = new MediaPlayer();
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
@@ -47,54 +43,39 @@ implements View.OnClickListener{
         synComponent();
         addListenner();
         populateTitles();
-        populateList();
-/*
-        try {
-
-            List<YoutubeData> lst = Json_Decoder.getJsonContent("AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q", "unravel", "5", "DETAIL");
-            for(int i = 0; i < lst.size(); i++) {
-                lst.get(i).print();
-            }
-        }  catch (Exception e) {
-            e.printStackTrace();
-        }*/
     }
 
     private void synComponent() {
-        txtTest = (EditText) findViewById(R.id.txtTest);
-        btnTest = (Button) findViewById(R.id.btnTest);
+        btnPlay = (Button) findViewById(R.id.btnPlay);
         btnSearch = findViewById(R.id.btnSearch_main);
-        btnWeb = findViewById(R.id.btnWeb);
-        listView = (ListView) findViewById(R.id.lst_audio);
     }
 
     private void addListenner() {
-        btnTest.setOnClickListener(this);
-        btnWeb.setOnClickListener(this);
+        btnPlay.setOnClickListener(this);
         btnSearch.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == btnTest.getId()) {
+        if(v.getId() == btnPlay.getId()) {
             Debug.debug("TEST", "Test Button");
-
             populateTitles();
-            populateList();
-
             Intent intent = new Intent(this, activity_Audio.class);
             intent.putExtra("audios", titles);
             startActivity(intent);
-        } else if (v.getId() == btnWeb.getId()) {
-            Intent in = new Intent(this, activity_Convert.class);
-            startActivity(in);
-        } else if (v.getId() == btnSearch.getId()) {
+        }  else if (v.getId() == btnSearch.getId()) {
             Intent in = new Intent(this, activity_Populate.class);
             startActivity(in);
         }
     }
 
+
+    /**
+     * Populate Titles to Array
+     * Note Titles are retreieved from php link
+     * This Array will be passed to Player Layout
+     * */
     public void populateTitles() {
         try {
 
@@ -112,34 +93,5 @@ implements View.OnClickListener{
             e.printStackTrace();
         }
     }
-    public void populateList() {
 
-        if(titles.length <= 0 || titles == null) {
-            Debug.debug("Title List", "Empty");
-        } else {
-            listView = (ListView) findViewById(R.id.lst_audio);
-            ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                    R.layout.simplerow, titles);
-            listView.setAdapter(adapter);
-            listView.setOnItemClickListener(listClick);
-
-        }
-
-    }
-
-    AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
-
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Debug.debug("TEST1", parent.getItemAtPosition(position));
-/*
-            try {
-                mp.setDataSource("http://192.168.1.243/leeleelookupphp/youtubedownloader/audio/TsuruNoShikaeshi.mp3");
-                mp.prepare();
-                mp.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
-        }
-    };
 }
