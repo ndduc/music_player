@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_tab_2">
+
+    <!--Custom Tab Layout-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        >
+        <Button
+            android:id="@+id/btnTab_Home"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@mipmap/img_home"
+            android:layout_marginLeft="5dp"
+            ></Button>
+        <Button
+            android:id="@+id/btnTab_Search"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@mipmap/img_search"
+            android:layout_marginLeft="20dp"></Button>
+        <Button
+            android:id="@+id/btnTab_Music"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@mipmap/img_music"
+            android:layout_marginLeft="20dp"></Button>
+    </LinearLayout>
+
+</LinearLayout>

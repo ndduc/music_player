@@ -23,6 +23,6 @@
         <activity android:name=".activity_Convert"></activity>
         <activity android:name=".activity_Check"></activity>
         <activity android:name=".activity_Populate"></activity>
-
+        <activity android:name=".activity_Audio_Adv"></activity>
     </application>
 </manifest>

@@ -31,7 +31,7 @@ implements View.OnClickListener{
     //https://code.tutsplus.com/tutorials/create-a-music-player-on-android-project-setup--mobile-22764
     //http://www.java2s.com/Code/Android/Media/PlayMp3filefromaUrl.htm
     private EditText txtTest;
-    private Button btnPlay, btnSearch;
+    private Button btnPlay, btnSearch, btnTest;
     private List<Titles> titleList;
     private String titles[];
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +48,13 @@ implements View.OnClickListener{
     private void synComponent() {
         btnPlay = (Button) findViewById(R.id.btnPlay);
         btnSearch = findViewById(R.id.btnSearch_main);
+        btnTest = findViewById(R.id.btnTest);
     }
 
     private void addListenner() {
         btnPlay.setOnClickListener(this);
         btnSearch.setOnClickListener(this);
+        btnTest.setOnClickListener(this);
     }
 
 
@@ -66,6 +68,9 @@ implements View.OnClickListener{
             startActivity(intent);
         }  else if (v.getId() == btnSearch.getId()) {
             Intent in = new Intent(this, activity_Populate.class);
+            startActivity(in);
+        } else if (v.getId() == btnTest.getId()) {
+            Intent in = new Intent(this, activity_Audio_Adv.class);
             startActivity(in);
         }
     }
