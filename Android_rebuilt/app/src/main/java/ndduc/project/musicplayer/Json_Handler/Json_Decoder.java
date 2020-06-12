@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import ndduc.project.musicplayer.Container.Directory;
 import ndduc.project.musicplayer.Container.Titles;
 import ndduc.project.musicplayer.Container.YoutubeData;
 import ndduc.project.musicplayer.Helper.Debug;
@@ -28,6 +29,22 @@ public class Json_Decoder {
             for(int i = 0; i < jar.length();i++) {
                 //Debug.debug(i, jar.get(i));
                 Titles tit = new Titles(jar.get(i));
+                lst.add(tit);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return lst;
+    }
+
+    public List<Directory> populateDirectory() {
+        List<Directory> lst = new ArrayList<>();
+        try {
+            JSONArray jar = root.getJSONArray("dir");
+            for(int i = 0; i < jar.length();i++) {
+                //Debug.debug(i, jar.get(i));
+                Directory tit = new Directory(jar.get(i));
                 lst.add(tit);
             }
         } catch (JSONException e) {

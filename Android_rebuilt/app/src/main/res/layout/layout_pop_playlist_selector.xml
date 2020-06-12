@@ -40,14 +40,14 @@
             android:layout_height="wrap_content"
             android:text="Select"
             android:textSize="20dp"
-            android:id="@+id/btnSelect"></Button>
+            android:id="@+id/btnSelect_playlist"></Button>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Return"
             android:textSize="20dp"
-            android:id="@+id/btnReturn"></Button>
+            android:id="@+id/btnReturn_playlist"></Button>
     </LinearLayout>
 
 
