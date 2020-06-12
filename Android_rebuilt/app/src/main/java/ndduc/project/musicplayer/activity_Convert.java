@@ -16,6 +16,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * UNUSED FILE
+ * This page meant to test the webview and along with the functionality
+ *
+ * */
 public class activity_Convert extends AppCompatActivity implements View.OnTouchListener,
         Handler.Callback   {
 
