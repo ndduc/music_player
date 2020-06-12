@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/border_white"
+
+    android:id="@+id/lay_menu_red">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -10,19 +13,22 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btnCreate_Menu_Red"
             android:text="CREATE">
         </Button>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Modify">
+            android:text="Modify"
+            android:id="@+id/btnMod_Menu_Red">
         </Button>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Return">
+            android:text="Return"
+            android:id="@+id/btnReturn_Menu_Red">
         </Button>
     </LinearLayout>
 </LinearLayout>
