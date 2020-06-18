@@ -19,10 +19,12 @@
 
         </activity>
 
+        <service android:enabled="true" android:name=".activity_background" />
         <activity android:name=".activity_Audio"></activity>
         <activity android:name=".activity_Convert"></activity>
         <activity android:name=".activity_Check"></activity>
         <activity android:name=".activity_Populate"></activity>
         <activity android:name=".activity_Audio_Adv"></activity>
+
     </application>
 </manifest>

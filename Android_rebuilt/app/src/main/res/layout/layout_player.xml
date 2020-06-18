@@ -77,6 +77,13 @@
                     android:layout_height="wrap_content"
                     android:text="Repeat"
                     android:id="@+id/btnRe"></Button>
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Service"
+                    android:id="@+id/btnServiceDebug"></Button>
             </LinearLayout>
 
 

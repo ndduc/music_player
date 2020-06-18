@@ -14,4 +14,8 @@
     <string name="btn_Add">Tap To Add This Video</string>
 
     <string name="edit_api">AIzaSyDE2igQOTyQ6XgJM03wLazUBF_zmWYWx4Q</string>    //Default API
+
+
+    <string name="ngrok">http://7d590bd373c7.ngrok.io/</string>
+    <string name="server">leeleelookupphp/node/audio/</string>
 </resources>

@@ -155,7 +155,7 @@ public class activity_Populate extends AppCompatActivity {
     private void createPopUp(View v, String title, String channel, String id, Object image) throws UnsupportedEncodingException {
 
 
-        String url = "http://192.168.1.243:80/leeleelookupphp/node/index.php?t=" + URL_Encoder.get_URL_Encoder_Mod_1(title) + "&c=" + URL_Encoder.get_URL_Encoder_Mod_1(channel) + "&i=" + URL_Encoder.get_URL_Encoder_Mod_1(id) + "&im=" + image.toString();
+        String url = getResources().getString(R.string.ngrok) + "/leeleelookupphp/node/index.php?t=" + URL_Encoder.get_URL_Encoder_Mod_1(title) + "&c=" + URL_Encoder.get_URL_Encoder_Mod_1(channel) + "&i=" + URL_Encoder.get_URL_Encoder_Mod_1(id) + "&im=" + image.toString();
         Debug.debug("TEST URL", url);
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = inflater.inflate(R.layout.layout_convert, null);
