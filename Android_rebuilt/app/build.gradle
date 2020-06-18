@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "ndduc.project.musicplayer"
-        minSdkVersion 28
+        minSdkVersion defaultMinSdkVersion
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

@@ -28,8 +28,6 @@ import ndduc.project.musicplayer.URL_Handler.URL_Decoder;
 
 public class activity_Main extends AppCompatActivity
 implements View.OnClickListener{
-    //https://code.tutsplus.com/tutorials/create-a-music-player-on-android-project-setup--mobile-22764
-    //http://www.java2s.com/Code/Android/Media/PlayMp3filefromaUrl.htm
     private EditText txtTest;
     private Button btnPlay, btnSearch, btnTest;
     private List<Titles> titleList;
@@ -43,7 +41,14 @@ implements View.OnClickListener{
         synComponent();
         addListenner();
         populateTitles();
+
+
+        //Test background player:
+
     }
+
+
+
 
     private void synComponent() {
         btnPlay = (Button) findViewById(R.id.btnPlay);
@@ -84,7 +89,7 @@ implements View.OnClickListener{
     public void populateTitles() {
         try {
 
-            JSONObject json = Conn_Json.readJsonFromUrl("http://192.168.1.243/leeleelookupphp/phpfunction/read_directory/read_dir.php?action=adv_read");
+            JSONObject json = Conn_Json.readJsonFromUrl( getResources().getString(R.string.ngrok) +"leeleelookupphp/phpfunction/read_directory/read_dir.php?action=adv_read");
             Json_Decoder jd = new Json_Decoder(json);
             titleList = jd.populateTiles();
             titles = new String[titleList.size()] ;

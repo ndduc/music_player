@@ -5,23 +5,16 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.squareup.picasso.Picasso;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,8 +33,7 @@ public class activity_Audio_Adv extends AppCompatActivity
     private Button btnPlayList, btnConfig;
     private LayoutInflater mInflater;       //Used to dynamically add view to layout
     private ListView list_player;
-    private ArrayAdapter adapter;
-    private String selected_dir;
+    private ArrayAdapter adapter_player;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -52,16 +44,14 @@ public class activity_Audio_Adv extends AppCompatActivity
         setupListener();
 
 
+        mInflater = LayoutInflater.from(this);
 
-
-
-     }
-
-    private void setAdaper(String folder) {
-        adapter = new ArrayAdapter<String>(this,
-                R.layout.simplerow, populateTitles("adv", folder));
     }
 
+     private void setAdaper(String folder) {
+         adapter_player = new ArrayAdapter<String>(this,
+                 R.layout.simplerow, populateTitles("adv", folder));
+     }
     private void setupComponent() {
         btnPlayList = findViewById(R.id.btnPlayList_ADV);
         btnConfig = findViewById(R.id.btnConfig_ADV);
@@ -276,7 +266,6 @@ public class activity_Audio_Adv extends AppCompatActivity
                  @Override
                  public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                      Debug.debug("TEST", arrMod[position]);
-                   //  selected_dir =arrMod[position];
                      setAdaper(arrMod[position]);
                     playlistContent(popupView_Playlist, "playlist", "playlist", arrMod[position]);
                      if(arrMod[position].equals("Copy")) {
@@ -300,12 +289,12 @@ public class activity_Audio_Adv extends AppCompatActivity
                      popupWindow.dismiss();
                  } else if (v.getId() == btnSelect_playList.getId()) {
                      //playlistContent(popupView_Playlist, "else", "else", "");
+
                      /*
                      ArrayAdapter adapter = new ArrayAdapter<String>(this.getContext(),
-                             R.layout.simplerow, populateTitles("adv", folder));*/
-
-
-                     list_player.setAdapter(adapter);
+                             R.layout.simplerow, populateTitles("adv", folder));
+                     list.setAdapter(adapter);*/
+                     list_player.setAdapter(adapter_player);
                      popupWindow.dismiss();
 
                  }

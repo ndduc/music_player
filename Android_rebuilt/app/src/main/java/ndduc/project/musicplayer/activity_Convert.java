@@ -32,6 +32,7 @@ public class activity_Convert extends AppCompatActivity implements View.OnTouchL
 
     private String url = "http://192.168.1.243:80/leeleelookupphp/node/index.php?i=RrkzIN2eP0U";
     protected void onCreate(Bundle savedInstanceState) {
+        url = getResources().getString(R.string.ngrok) + "leeleelookupphp/node/index.php?i=RrkzIN2eP0U";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_convert);
 
